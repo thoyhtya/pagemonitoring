@@ -1,0 +1,8 @@
+---
+- name: Hello world
+  debug: msg="Hello {{ ansible_hostname }}!"
+- template:
+    # Template file uses Jinja2 syntax
+    src: config.json.j2
+    dest: /tmp/pagemonitor.json
+

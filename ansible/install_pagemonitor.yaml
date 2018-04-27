@@ -1,0 +1,3 @@
+- hosts: <FILLME>
+  roles:
+    - <FILLME>

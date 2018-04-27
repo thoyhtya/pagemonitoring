@@ -1,0 +1,12 @@
+all:
+    hosts:
+        test-host:
+            ansible_connection: local
+    vars:
+        list_of_things:
+            - name: thing A
+              special_value: foo
+            - name: thing B
+              special_value: bar
+            - name: thing C
+              special_value: baz
