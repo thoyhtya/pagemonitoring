@@ -3,6 +3,7 @@ all:
         test-host:
             ansible_connection: local
     vars:
+        virtualenv_path: /home/tume/Documents/homework/ansible/.venv
         list_of_things:
             - name: thing A
               special_value: foo
