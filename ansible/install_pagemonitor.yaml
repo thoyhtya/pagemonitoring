@@ -1,3 +1,3 @@
-- hosts: <FILLME>
+- hosts: test-host
   roles:
-    - <FILLME>
+    - pagemonitor
