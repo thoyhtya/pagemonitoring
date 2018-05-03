@@ -5,10 +5,3 @@ all:
     vars:        
         install_location: /opt/pagemonitor/
         process_name: pagemonitor.py
-        list_of_things:
-            - name: thing A
-              special_value: foo
-            - name: thing B
-              special_value: bar
-            - name: thing C
-              special_value: baz
