@@ -4,6 +4,7 @@ all:
             ansible_connection: local
     vars:
         virtualenv_path: /home/tume/Documents/homework/ansible/.venv
+        process_name: pagemonitor.py
         list_of_things:
             - name: thing A
               special_value: foo
