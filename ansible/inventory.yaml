@@ -2,8 +2,8 @@ all:
     hosts:
         test-host:
             ansible_connection: local
-    vars:
-        virtualenv_path: /home/tume/Documents/homework/ansible/.venv
+    vars:        
+        install_location: /opt/pagemonitor/
         process_name: pagemonitor.py
         list_of_things:
             - name: thing A
