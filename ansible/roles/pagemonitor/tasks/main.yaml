@@ -45,6 +45,18 @@
     owner: root
     group: root
 
+- name: Add requirements
+  become: yes
+  copy:
+    src: requirements.txt
+    dest: "{{ install_location }}"
+    owner: root
+    group: root
+
+#install requirements
+- pip:
+    requirements: "{{ install_location }}requirements.txt"
+
 - name: Execute pagemonitor script
   become: yes
   shell: "python3 {{ install_location }}{{ process_name }} &"
