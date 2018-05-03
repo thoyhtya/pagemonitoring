@@ -7,7 +7,29 @@
 #     src: config.json.j2
 #     dest: /opt/pagemonitor.json
 
-- name: Stop running jobs
+#stop running process if it exists
+#from https://stackoverflow.com/questions/46515704/how-to-kill-a-running-process-using-ansible
+- name: Get running processes
+  shell: "ps -ef | grep -v grep | grep -w {{ process_name }} | awk '{print $2}'"
+  register: running_processes
+
+- name: Kill running processes
+  shell: "kill {{ item }}"
+  with_items: "{{ running_processes.stdout_lines }}"
+
+- wait_for:
+    path: "/proc/{{ item }}/status"
+    state: absent
+  with_items: "{{ running_processes.stdout_lines }}"
+  ignore_errors: yes
+  register: killed_processes
+
+- name: Force kill stuck processes
+  shell: "kill -9 {{ item }}"
+  with_items: "{{ killed_processes.results | select('failed') | map(attribute='item') | list }}"
+
+
+- name: Delete previous install directory
   become: yes
   file:
     dest: /opt/pagemonitor/
