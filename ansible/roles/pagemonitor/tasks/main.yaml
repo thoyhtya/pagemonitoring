@@ -29,6 +29,7 @@
   with_items: "{{ killed_processes.results | select('failed') | map(attribute='item') | list }}"
 
 
+#just in case
 - name: Delete previous install directory
   become: yes
   file:
@@ -48,11 +49,6 @@
     dest: /opt/pagemonitor/
     owner: root
     group: root
-
-#install requirements
-- pip:
-    name: gevent
-    virtualenv: "{{ virtualenv_path }}"
 
 - name: execute pagemonitor script
   command: python3 /opt/pagemonitor/pagemonitor.py
