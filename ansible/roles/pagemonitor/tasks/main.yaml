@@ -57,6 +57,7 @@
 - pip:
     requirements: "{{ install_location }}requirements.txt"
 
+#starts script in background since it never exits
 - name: Execute pagemonitor script
   become: yes
   shell: "python3 {{ install_location }}{{ process_name }} &"

@@ -7,7 +7,7 @@ from multiprocessing import Process
 
 #makes request to specified url 
 #repeats after interval in seconds
-#logs results
+#logs results to a file
 def polling_process(url, interval, logfile):
     while True:
         with open(logfile, "a") as f:
