@@ -1,0 +1,6 @@
+{
+    "urls": [
+        {"url": "http://www.kaleva.fi/", "interval": 60},
+        {"url": "http://www.yle.fi/", "interval": 60}
+    ]
+}
